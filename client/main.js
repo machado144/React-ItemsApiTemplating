@@ -13,7 +13,8 @@ class App extends Component {
 
   componentWillMount() {
     axios.get('https://api.imgur.com/3/gallery/hot/viral/0')
-      .then(response => this.setState({ items: response.data.data }));
+      .then(response => this.setState({ items: response.data.data }))
+      .catch(err => this.setState({ items: err} ));
   };
 
   render() {
